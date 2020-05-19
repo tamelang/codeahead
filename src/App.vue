@@ -3,35 +3,49 @@
     <header>
       <div class="navbar">
         <div class="logo">
-          <router-link to="/">Code Ahead</router-link>
+          <router-link to="/"
+            >code ahead<span class="curser">_</span></router-link
+          >
         </div>
-        <div class="burger">Burger Icon</div>
+        <button
+          class="hamburger"
+          v-bind:class="{
+            'hamburger--collapse': displayFlyout,
+            'is-active': displayFlyout,
+          }"
+          type="button"
+          @click="toggleFlyout"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
       </div>
-      <ul class="nav flyout">
-        <li>
+      <div class="nav flyout" v-if="displayFlyout">
+        <div>
           <router-link to="/about">Services</router-link>
-        </li>
-        <li>
+        </div>
+        <div>
           <router-link to="/about">Projects</router-link>
-        </li>
-        <li>
+        </div>
+        <div>
           <router-link to="/about">Technilogies</router-link>
-        </li>
-        <li>
+        </div>
+        <div>
           <router-link to="/about">People</router-link>
-        </li>
-        <li>
+        </div>
+        <div>
           <router-link to="/about">Career</router-link>
-        </li>
-      </ul>
-      <ul class="nav permanent-actions">
-        <li>
+        </div>
+      </div>
+      <div class="nav permanent-actions">
+        <div>
           <router-link to="/projects">Explore</router-link>
-        </li>
-        <li>
+        </div>
+        <div>
           <router-link to="/contact">Request</router-link>
-        </li>
-      </ul>
+        </div>
+      </div>
     </header>
     <article>
       <router-view />
@@ -41,39 +55,45 @@
 
 <style lang="scss">
 @use "./assets/styles/abstracts/abstracts";
-* {
-  margin: 0;
-  padding: 0;
-}
 
 .navbar {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //background-color: $secondary;
+  background-color: abstracts.$light;
 }
 
 .logo {
-  font-size: 54px;
+  margin: 1rem;
+  font-size: 2rem;
+  font-family: abstracts.$font-logo;
   align-self: flex-start;
   a {
-    //color: $primary;
+    color: abstracts.$text-main;
+    text-decoration: none;
+  }
+  .curser {
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
   }
 }
 
 .burger {
   align-self: flex-end;
-  color: white;
+  color: abstracts.$dark;
 }
 
 .permanent-actions {
   display: flex;
   flex-direction: row;
-  list-style-type: none;
-  overflow: hidden;
   width: 100%;
-  li {
+  div {
     display: flex;
     color: white;
     align-content: center;
@@ -82,18 +102,51 @@
     a {
       width: 100%;
       text-align: center;
-      //color: $secondary;
+      text-decoration: none;
+      color: abstracts.$text-light;
     }
   }
-  li:nth-child(even) {
-    background-color: $fire-bush;
+  div:nth-child(even) {
+    background-color: abstracts.$accent;
   }
-  li:nth-child(odd) {
-    //background-color: $highlight2;
+  div:nth-child(odd) {
+    background-color: abstracts.$accent-dark;
   }
 }
 .flyout {
-  display: block;
-  //background-color: $background;
+  background-color: abstracts.$dark;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  div {
+    display: flex;
+    color: white;
+    align-content: center;
+    padding: 1rem;
+    width: 50%;
+    a {
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: abstracts.$text-light;
+    }
+  }
 }
 </style>
+
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  data: function() {
+    return {
+      displayFlyout: false,
+    };
+  },
+  methods: {
+    toggleFlyout: function() {
+      this.displayFlyout = !this.displayFlyout;
+    },
+  },
+});
+</script>
