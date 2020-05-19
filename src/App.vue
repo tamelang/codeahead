@@ -11,7 +11,7 @@
           class="hamburger"
           v-bind:class="{
             'hamburger--collapse': displayFlyout,
-            'is-active': displayFlyout,
+            'is-active': displayFlyout
           }"
           type="button"
           @click="toggleFlyout"
@@ -21,7 +21,7 @@
           </span>
         </button>
       </div>
-      <div class="nav flyout" v-if="displayFlyout">
+      <div class="nav flyout" v-bind:class="{ 'is-active': displayFlyout }">
         <div>
           <router-link to="/about">Services</router-link>
         </div>
@@ -113,12 +113,26 @@
     background-color: abstracts.$accent-dark;
   }
 }
+
 .flyout {
   background-color: abstracts.$dark;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  opacity: 0;
+  visibility: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.35s, visibility 0.01s 0.35s, max-height 0.35s;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s, visibility 0.01s, max-height 0.35s;
+    max-height: 200px;
+  }
+
   div {
     display: flex;
     color: white;
@@ -140,13 +154,13 @@ import Vue from "vue";
 export default Vue.extend({
   data: function() {
     return {
-      displayFlyout: false,
+      displayFlyout: false
     };
   },
   methods: {
     toggleFlyout: function() {
       this.displayFlyout = !this.displayFlyout;
-    },
-  },
+    }
+  }
 });
 </script>
