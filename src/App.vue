@@ -34,6 +34,12 @@
         <div>
           <router-link to="/tech">Tech Stack</router-link>
         </div>
+        <div>
+          <router-link to="/privacy">Privacy Policy</router-link>
+        </div>
+        <div>
+          <router-link to="/imprint">Imprint</router-link>
+        </div>
       </div>
       <div class="nav permanent-actions">
         <div>

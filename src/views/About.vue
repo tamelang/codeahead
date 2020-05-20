@@ -3,9 +3,10 @@
     <article class="container">
       <h1>About me</h1>
       <p>
-        My name is Tim, I work as a software developer, in the area of web
-        development, working mainly in the backend and designing software
-        architecture and concepts.
+        Hi my name is Tim. I am a Software Engineer/Architect based in
+        Düsseldorf (Germany), specialised in Java and Web development. My main
+        focus is on working with Adobe Marketing Cloud solution and developing
+        AEM based projects. I am also certified AEM Developer and Architect.
       </p>
     </article>
   </div>

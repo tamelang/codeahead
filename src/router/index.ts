@@ -35,6 +35,18 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Tech.vue")
   },
   {
+    path: "/privacy",
+    name: "Privacy Policy",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Privacy.vue")
+  },
+  {
+    path: "/imprint",
+    name: "Imprint",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Imprint.vue")
+  },
+  {
     path: "/contact",
     name: "Contact",
     component: () =>
