@@ -23,24 +23,21 @@
       </div>
       <div class="nav flyout" v-bind:class="{ 'is-active': displayFlyout }">
         <div>
-          <router-link to="/about">Services</router-link>
+          <router-link to="/about">About me</router-link>
         </div>
         <div>
-          <router-link to="/about">Projects</router-link>
+          <router-link to="/services">Services</router-link>
         </div>
         <div>
-          <router-link to="/about">Technilogies</router-link>
+          <router-link to="/projects">Projects</router-link>
         </div>
         <div>
-          <router-link to="/about">People</router-link>
-        </div>
-        <div>
-          <router-link to="/about">Career</router-link>
+          <router-link to="/tech">Tech Stack</router-link>
         </div>
       </div>
       <div class="nav permanent-actions">
         <div>
-          <router-link to="/projects">Explore</router-link>
+          <router-link to="/explore">Explore</router-link>
         </div>
         <div>
           <router-link to="/contact">Request</router-link>
@@ -138,7 +135,7 @@
     color: white;
     align-content: center;
     padding: 1rem;
-    width: 50%;
+    width: 100%;
     a {
       width: 100%;
       text-align: center;
