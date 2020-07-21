@@ -23,4 +23,4 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-Click [Test Link](./INTRO.md)
+Click [Test Link](./wiki/INTRO.md)
